@@ -21,3 +21,9 @@ def average_basket(df: pd.DataFrame) -> pd.Series:
 def sales_by_category(df: pd.DataFrame) -> pd.Series:
     """Nombre de ventes par categorie, du plus vendu au moins vendu."""
     return df.groupby("categorie").size().sort_values(ascending=False)
+
+
+def revenue_par_categorie(df: pd.DataFrame) -> pd.Series:
+    """Calcule le chiffre d'affaires total par categorie."""
+    result = df.groupby("categorie")["montant"].sum()
+    return result.round(2).sort_values(ascending=False)
