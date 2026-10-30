@@ -19,3 +19,8 @@ def test_revenue_by_region():
 
 def test_total_revenue():
     assert total_revenue(df_exemple()) == 230.0
+def test_sales_by_category():
+    from datapulse.metrics import sales_by_category
+    result = sales_by_category(df_exemple())
+    assert result["Informatique"] == 2
+    assert result["Electromenager"] == 1

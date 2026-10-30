@@ -10,3 +10,6 @@ def revenue_by_region(df: pd.DataFrame) -> pd.Series:
 def total_revenue(df: pd.DataFrame) -> float:
     """Chiffre d'affaires total."""
     return round(float(df["montant"].sum()), 2)
+def sales_by_category(df: pd.DataFrame) -> pd.Series:
+    """Nombre de ventes par categorie, du plus vendu au moins vendu."""
+    return df.groupby("categorie").size().sort_values(ascending=False)
