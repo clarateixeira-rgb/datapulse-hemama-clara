@@ -23,7 +23,13 @@ def sales_by_category(df: pd.DataFrame) -> pd.Series:
     return df.groupby("categorie").size().sort_values(ascending=False)
 
 
+def sales_by_region(df: pd.DataFrame) -> pd.Series:
+    """Nombre de ventes par region, de la plus active a la moins active."""
+    return df.groupby("region").size().sort_values(ascending=False)
+
+  
 def revenue_by_category(df: pd.DataFrame) -> pd.Series:
     """Calcule le chiffre d'affaires total par categorie."""
     result = df.groupby("categorie")["montant"].sum()
     return result.round(2).sort_values(ascending=False)
+

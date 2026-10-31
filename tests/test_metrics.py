@@ -33,6 +33,14 @@ def test_sales_by_category():
     assert result["Informatique"] == 2
     assert result["Electromenager"] == 1
 
+    
+def test_sales_by_region():
+    from datapulse.metrics import sales_by_region
+    result = sales_by_region(df_exemple())
+    assert result["Occitanie"] == 2
+    assert result["Bretagne"] == 1
+    assert result.index[0] == "Occitanie"
+
 
 def test_revenue_by_category():
     from datapulse.metrics import revenue_by_category
@@ -44,3 +52,4 @@ def test_revenue_by_category():
     assert result.index[0] == "Informatique"
     
     
+
