@@ -32,3 +32,15 @@ def test_sales_by_category():
     result = sales_by_category(df_exemple())
     assert result["Informatique"] == 2
     assert result["Electromenager"] == 1
+
+
+def test_revenue_by_category():
+    from datapulse.metrics import revenue_by_category
+
+    result = revenue_by_category(df_exemple())
+
+    assert result["Informatique"] == 130.0
+    assert result["Electromenager"] == 100.0
+    assert result.index[0] == "Informatique"
+    
+    
